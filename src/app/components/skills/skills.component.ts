@@ -9,7 +9,11 @@ import { Skill } from './skill';
 })
 export class SkillsComponent implements OnInit {
 
-  skills!: Skill[];
+  title: string = 'Liste de mes Skills'
+  skills!: Skill[]
+  valueProp!: string
+  values!: string
+  skillPractice: number = 20
 
   constructor() { }
 
@@ -17,4 +21,18 @@ export class SkillsComponent implements OnInit {
     this.skills = SKILLS
   }
 
+  selectSkill(skill: Skill) {
+    console.log('Vous avez selectionné ' + skill.name)
+  }
+  onClickMy() {
+    console.log('Clic !')
+  }
+
+  /*onKeyMy(event: any){
+  this.value = `Bonjour ${event.target.value}`
+  }*/
+
+  onKeyMy(value: string) {
+    this.valueProp = `Bonjour ${value}`
+  }
 }
