@@ -1,4 +1,5 @@
 {
     "diffEditor.codeLens": true,
-    "editor.insertSpaces": false
+    "editor.insertSpaces": false,
+    "cSpell.language": "en"
 }

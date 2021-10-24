@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SKILLS } from './listSkills';
+import { Skill } from './skill';
 
 @Component({
   selector: 'app-skills',
