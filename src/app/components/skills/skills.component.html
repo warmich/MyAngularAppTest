@@ -2,26 +2,24 @@
 <div class='container'>
   <div class="row">
 
-    <button (click)="onClickMy()">Cliquer ici !</button>
-
     <input #box (keyup)="onKeyMy(box.value)">
     <p>{{ box.value }}</p>
-    <p>{{ valueProp }}</p>
+    <p>{{ searchedText }}</p>
 
     <input #boxEnter (keyup.enter)="values=boxEnter.value" (blur)="values=boxEnter.value">
     <p>{{ values }}</p>
 
     <p *ngIf="skillPractice > 5">Niveau du Skill : Senior (+ de 5 ans)</p>
-    
+
     <div *ngFor='let skill of skills' class="col s6 m4">
-      <div class="card horizontal" (click)="selectSkill(skill)">
+      <div class="card horizontal" (click)="selectSkill(skill)" devBorderCard="{{ skill.name | borderColorBySkillName }}"> <!-- devBorderCard="red" -->
         <div class="card-image">
-          <img [src]="skill.picture">
+          <img [src]="skill.picture" style="margin: 10px;">
         </div>
         <div class="card-stacked">
           <div class="card-content">
             <p>{{ skill.name }}</p>
-            <p><small>{{ skill.startDate }}</small></p>
+            <p><small>{{ skill.startDate | date: "dd//MM/yyyy" }}</small></p>
           </div>
         </div>
       </div>

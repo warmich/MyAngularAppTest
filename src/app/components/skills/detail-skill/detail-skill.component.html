@@ -1,0 +1,44 @@
+<div *ngIf="skill" class="row">
+	<div class="col s12 m8 offset-m2">
+	<h2 class="header center">{{ skill.name }}</h2>
+	<div class="card horizontal hoverable">
+	  <div class="card-image">
+		<img [src]="skill.picture">
+	  </div>
+	  <div class="card-stacked">
+		<div class="card-content">
+		  <table class="bordered striped">
+			<tbody>
+			  <tr>
+				<td>Skill</td>
+				<td><strong>{{ skill.name }}</strong></td>
+			  </tr>
+			  <tr>
+				<td>Evaluation</td>
+				<td><strong>{{ skill.evaluation }}</strong></td>
+			  </tr>
+			  <tr>
+				<td>Catégorie</td>
+				<td><strong>{{ skill.category }}</strong></td> <!-- ajouter class="{{ category | catTypeColor }}" -->
+			  </tr>
+			  <tr>
+				<td>Détails</td>
+				<td>
+				  <span *ngFor="let sub of skill.subSkills">{{ sub }}</span>
+				</td>
+			  </tr>
+			  <tr>
+				<td>Date de création</td>
+				<td><em>{{ skill.startDate | date:"dd/MM/yyyy" }}</em></td>
+			  </tr>
+			</tbody>
+		  </table>
+		</div>
+		<div class="card-action">
+		  <a (click)="goBack()">Retour</a>
+		</div>
+	  </div>
+	</div>
+	</div>
+	</div>
+	<h4 *ngIf='!skill' class="center">Aucun skill à afficher !</h4>

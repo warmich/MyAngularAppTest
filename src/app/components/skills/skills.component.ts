@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SKILLS } from './listSkills';
 import { Skill } from './skill';
 
@@ -11,28 +12,23 @@ export class SkillsComponent implements OnInit {
 
   title: string = 'Liste de mes Skills'
   skills!: Skill[]
-  valueProp!: string
+  searchedText!: string
   values!: string
-  skillPractice: number = 20
+  skillPractice: number = 1
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.skills = SKILLS
   }
 
   selectSkill(skill: Skill) {
-    console.log('Vous avez selectionné ' + skill.name)
+    console.log('Vous avez sélectionné ' + skill.name)
+    let link = ['/detailskill', skill.id]
+    this.router.navigate(link)
   }
-  onClickMy() {
-    console.log('Clic !')
-  }
-
-  /*onKeyMy(event: any){
-  this.value = `Bonjour ${event.target.value}`
-  }*/
 
   onKeyMy(value: string) {
-    this.valueProp = `Bonjour ${value}`
+    this.searchedText = `Recherche : ${value}`
   }
 }

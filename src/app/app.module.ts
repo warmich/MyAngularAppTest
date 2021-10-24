@@ -5,12 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { DevComponent } from './components/dev/dev.component';
+import { BorderCardDirective } from './directives/border-card.directive';
+import { borderColorBySkillNamePipe } from './pipes/borderColorBySkillName.pipe';
+import { DetailSkillComponent } from './components/skills/detail-skill/detail-skill.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SkillsComponent,
-    DevComponent
+    DevComponent,
+    BorderCardDirective,
+    borderColorBySkillNamePipe,
+    DetailSkillComponent
   ],
   imports: [
     BrowserModule,
