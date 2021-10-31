@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Skill } from '../skill';
-import { SKILLS } from '../listSkills';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SkillsService } from 'src/app/services/skills.service';
 
 @Component({
     selector: 'app-detail-skill',
@@ -10,30 +10,24 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DetailSkillComponent implements OnInit {
 
-    skills!: Skill[]
     skill!: Skill
 
-    constructor(private route: ActivatedRoute, private router: Router) { } // Injection de dépendances
+    constructor(
+        private route: ActivatedRoute,
+        private router: Router,
+        private _skillsService: SkillsService
+    ) { }
 
     ngOnInit(): void {
-
-        this.skills = SKILLS
-
-        // récupérer l'identifiant du skill contenu dans l'url
-        let id = Number(this.route.snapshot.paramMap.get('id')) // récupérer les param de la route associé au component
-            // Number => Caster en un nombre
-            // this.route => récupère le param passé dans le ctor
-            // snapshot => récupère le param de manière synchrone car il doit être récupéré absolument pour s'afficher
-            // paramMap.get('id') => récupère le param id sous forme de string
-        for (let i = 0; i < this.skills.length; i++) {
-            if (this.skills[i].id == id) {
-                this.skill = this.skills[i]
-            }
-        }
+        let id = +this.route.snapshot.params['id']
+        this.skill = this._skillsService.getSkill(id)
     }
 
     goBack(): void {
         this.router.navigate(['/skills'])
     }
 
+    goEdit(skill: Skill): void {
+        this.router.navigate(['/editskill', skill.id])
+    }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SKILLS } from './listSkills';
+import { SkillsService } from 'src/app/services/skills.service';
 import { Skill } from './skill';
 
 @Component({
@@ -16,10 +16,10 @@ export class SkillsComponent implements OnInit {
   values!: string
   skillPractice: number = 1
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private _skillsService: SkillsService) { }
 
   ngOnInit(): void {
-    this.skills = SKILLS
+    this.skills = this._skillsService.getSkills()
   }
 
   selectSkill(skill: Skill) {
