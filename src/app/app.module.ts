@@ -12,6 +12,8 @@ import { borderColorBySkillNamePipe } from './pipes/borderColorBySkillName.pipe'
 import { DetailSkillComponent } from './components/skills/detail-skill/detail-skill.component';
 import { SkillFormComponent } from './components/skills/skill-form/skill-form.component';
 import { EditSkillComponent } from './components/skills/skill-form/edit-skill.component';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'
+import { InMemoryDataService } from './services/in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { EditSkillComponent } from './components/skills/skill-form/edit-skill.co
   imports: [
     BrowserModule,
     HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false}), // supprimer ces 2 importations pour passer sur une vraie API
     FormsModule,
     AppRoutingModule
   ],
