@@ -15,6 +15,10 @@ import { EditSkillComponent } from './components/skills/skill-form/edit-skill.co
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { SearchTextComponent } from './components/search-text/search-text.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { SkillsService } from './services/skills.service';
+
+import { AuthGuardService } from './services/auth-guard.service'
 
 @NgModule({
   declarations: [
@@ -26,7 +30,8 @@ import { SearchTextComponent } from './components/search-text/search-text.compon
     DetailSkillComponent,
     SkillFormComponent,
     EditSkillComponent,
-    SearchTextComponent
+    SearchTextComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,7 @@ import { SearchTextComponent } from './components/search-text/search-text.compon
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [SkillsService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
