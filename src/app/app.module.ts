@@ -15,6 +15,12 @@ import { EditSkillComponent } from './components/skills/skill-form/edit-skill.co
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { SearchTextComponent } from './components/search-text/search-text.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { SkillsService } from './services/skills.service';
+
+import { AuthGuardService } from './services/auth-guard.service';
+import { LoginComponent } from './components/login/login.component'
+import { LoginRoutingModule } from './components/login/login-routing.module';
 
 @NgModule({
   declarations: [
@@ -26,16 +32,19 @@ import { SearchTextComponent } from './components/search-text/search-text.compon
     DetailSkillComponent,
     SkillFormComponent,
     EditSkillComponent,
-    SearchTextComponent
+    SearchTextComponent,
+    LoaderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false}), // supprimer ces 2 importations pour passer sur une vraie API
     FormsModule,
+    LoginRoutingModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [SkillsService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -36,7 +36,7 @@ export class SearchTextComponent implements OnInit {
   }
 
   gotoDetail(skill: Skill): void {
-    let link = ['/detailskill', skill.id]
+    let link = ['/skill/detail', skill.id]
     this._router.navigate(link)
   }
 }

@@ -28,7 +28,7 @@ export class DetailSkillComponent implements OnInit {
     }
 
     goEdit(skill: Skill): void {
-        this.router.navigate(['/editskill', skill.id])
+        this.router.navigate(['/skill/edit', skill.id])
     }
 
     delete(skill: Skill): void {
