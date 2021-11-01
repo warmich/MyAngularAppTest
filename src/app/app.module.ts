@@ -14,6 +14,7 @@ import { SkillFormComponent } from './components/skills/skill-form/skill-form.co
 import { EditSkillComponent } from './components/skills/skill-form/edit-skill.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'
 import { InMemoryDataService } from './services/in-memory-data.service';
+import { SearchTextComponent } from './components/search-text/search-text.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { InMemoryDataService } from './services/in-memory-data.service';
     borderColorBySkillNamePipe,
     DetailSkillComponent,
     SkillFormComponent,
-    EditSkillComponent
+    EditSkillComponent,
+    SearchTextComponent
   ],
   imports: [
     BrowserModule,

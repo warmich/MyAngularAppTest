@@ -69,4 +69,15 @@ export class SkillsService {
       catchError(this.handleError<Skill>('deleteSkill'))
     )
   }
+
+  searchedText(requestedText: string): Observable<Skill[]> {
+    if (!requestedText.trim()) {
+      return of([])
+    }
+
+    return this.http.get<Skill[]>(`${this.skillsUrl}/?name=${requestedText}`).pipe(
+      tap(_ => this.log(`found skills matching "${requestedText}"`)),
+      catchError(this.handleError<Skill[]>('searchedText', []))
+    )
+  }
 }
