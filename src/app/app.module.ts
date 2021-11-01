@@ -18,7 +18,9 @@ import { SearchTextComponent } from './components/search-text/search-text.compon
 import { LoaderComponent } from './components/loader/loader.component';
 import { SkillsService } from './services/skills.service';
 
-import { AuthGuardService } from './services/auth-guard.service'
+import { AuthGuardService } from './services/auth-guard.service';
+import { LoginComponent } from './components/login/login.component'
+import { LoginRoutingModule } from './components/login/login-routing.module';
 
 @NgModule({
   declarations: [
@@ -31,13 +33,15 @@ import { AuthGuardService } from './services/auth-guard.service'
     SkillFormComponent,
     EditSkillComponent,
     SearchTextComponent,
-    LoaderComponent
+    LoaderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false}), // supprimer ces 2 importations pour passer sur une vraie API
     FormsModule,
+    LoginRoutingModule,
     AppRoutingModule
   ],
   providers: [SkillsService, AuthGuardService],
