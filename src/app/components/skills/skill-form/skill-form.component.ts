@@ -59,7 +59,7 @@ export class SkillFormComponent implements OnInit {
     }
 
     goBack(): void {
-      let link = ['/detailskill', this.skill.id]
+      let link = ['/skill/detail', this.skill.id]
       this._router.navigate(link)
     }
 }

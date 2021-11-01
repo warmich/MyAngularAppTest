@@ -9,7 +9,7 @@ export class AuthGuardService implements CanActivate {
   constructor() { }
 
   canActivate() {
-    alert('Le guard a bien été appelé !')
+    console.info('Le guard a bien été appelé !')
     return true
   }
 }

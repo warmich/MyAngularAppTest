@@ -25,7 +25,7 @@ export class SkillsComponent implements OnInit {
 
   selectSkill(skill: Skill) {
     console.log('Vous avez sélectionné ' + skill.name)
-    let link = ['/detailskill', skill.id]
+    let link = ['/skill/detail', skill.id]
     this.router.navigate(link)
   }
 }
