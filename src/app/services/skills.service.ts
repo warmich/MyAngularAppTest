@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Skill } from '../components/skills/skill';
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -46,6 +46,18 @@ export class SkillsService {
   getSubSkills(): string[] {
     return ['Scaffolding', 'Requêtes', 'Get / Post / Put', 'Méthodes', 'Class', 'Linq', 'Components', 'Modules', 'Styles', 'Services']
   }
+
+  // https://blog.logrocket.com/angular-in-memory-web-api-tutorial-mocking-crud-apis-in-angular/
+
+  // createSkill(skill: Skill): Observable<Skill> {
+  //   skill.id = null;
+  //   return this.http.post<Skill>(this.skillsUrl, skill).pipe(
+  //     catchError((error: HttpErrorResponse) => {
+  //       console.error(error);
+  //       return throwError(error);
+  //     })
+  //   )
+  // }
 
   updateSkill(skill: Skill): Observable<Skill> {
     const httpOptions = {
