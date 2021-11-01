@@ -23,7 +23,7 @@ export class EditSkillComponent implements OnInit {
  
   ngOnInit(): void {
     let id = +this._route.snapshot.params['id']
-    this.skill = this._skillsService.getSkill(id)
+    this._skillsService.getSkill(id).subscribe(skill => this.skill = skill)
   }
  
 }

@@ -19,7 +19,11 @@ export class SkillsComponent implements OnInit {
   constructor(private router: Router, private _skillsService: SkillsService) { }
 
   ngOnInit(): void {
-    this.skills = this._skillsService.getSkills()
+    this.getSkills()
+  }
+
+  getSkills(): void {
+    this._skillsService.getSkills().subscribe((skills: Skill[]) => this.skills = skills)
   }
 
   selectSkill(skill: Skill) {

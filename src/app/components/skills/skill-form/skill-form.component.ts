@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { takeWhile } from 'rxjs/operators';
 import { SkillsService } from 'src/app/services/skills.service';
 import { Skill } from '../skill';
 
@@ -48,15 +49,17 @@ export class SkillFormComponent implements OnInit {
         || this.skill.subSkills.length >= 3 && !this.hasSub(type)) {
             return false;
         }
- 
         return true;
     }
  
     // La méthode appelée lorsque le formulaire est soumis.
     onSubmit(): void {
         console.log("Submit form !");
-        let link = ['skill', this.skill.id];
-        this._router.navigate(link);
+        this._skillsService.updateSkill(this.skill).subscribe(() => this.goBack())
     }
 
+    goBack(): void {
+      let link = ['/detailskill', this.skill.id]
+      this._router.navigate(link)
+    }
 }

@@ -20,7 +20,7 @@ export class DetailSkillComponent implements OnInit {
 
     ngOnInit(): void {
         let id = +this.route.snapshot.params['id']
-        this.skill = this._skillsService.getSkill(id)
+        this._skillsService.getSkill(id).subscribe(skill => this.skill = skill)
     }
 
     goBack(): void {
@@ -29,5 +29,9 @@ export class DetailSkillComponent implements OnInit {
 
     goEdit(skill: Skill): void {
         this.router.navigate(['/editskill', skill.id])
+    }
+
+    delete(skill: Skill): void {
+        this._skillsService.deleteSkill(skill).subscribe(_ => this.goBack())
     }
 }
