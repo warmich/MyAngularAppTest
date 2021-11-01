@@ -8,16 +8,17 @@ import { SkillsComponent } from './components/skills/skills.component';
 import { PageNotFoundComponent } from './page-not-found.component';
 
 const routes: Routes = [
-  { 
+  { path: 'skills', component: SkillsComponent },
+  { path: 'skill/detail/:id', component: DetailSkillComponent },
+  {
     path: 'skill',
     canActivate: [AuthGuardService],
-    children: 
-    [
-      { path: 'detail/:id', component: DetailSkillComponent },
-      { path: 'edit/:id', component: EditSkillComponent, canActivate: [AuthGuardService] }
-    ]
-    },
-  { path: 'skills', component: SkillsComponent },
+    children:
+      [
+        { path: 'edit/:id', component: EditSkillComponent }
+        // { path: 'edit/:id', component: EditSkillComponent, canActivate: [AuthGuardService] }
+      ]
+  },
   { path: 'dev', component: DevComponent },
   { path: '', redirectTo: 'skills', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }

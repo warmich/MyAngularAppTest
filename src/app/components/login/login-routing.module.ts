@@ -4,8 +4,6 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login.component';
 import { AuthService } from 'src/app/services/auth.service';
 
-
-
 @NgModule({
   declarations: [],
   imports: [
