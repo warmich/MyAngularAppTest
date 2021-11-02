@@ -6,17 +6,19 @@ import { EditSkillComponent } from './components/skills/skill-form/edit-skill.co
 import { AuthGuardService } from './services/auth-guard.service'
 import { SkillsComponent } from './components/skills/skills.component';
 import { PageNotFoundComponent } from './page-not-found.component';
+import { AddSkillComponent } from './components/skills/add-skill/add-skill.component';
 
 const routes: Routes = [
   { path: 'skills', component: SkillsComponent },
   { path: 'skill/detail/:id', component: DetailSkillComponent },
   {
     path: 'skill',
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
     children:
       [
-        { path: 'edit/:id', component: EditSkillComponent }
         // { path: 'edit/:id', component: EditSkillComponent, canActivate: [AuthGuardService] }
+        { path: 'edit/:id', component: EditSkillComponent },
+        { path: 'add', component: AddSkillComponent }
       ]
   },
   { path: 'dev', component: DevComponent },

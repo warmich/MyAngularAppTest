@@ -21,6 +21,7 @@ import { SkillsService } from './services/skills.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { LoginComponent } from './components/login/login.component'
 import { LoginRoutingModule } from './components/login/login-routing.module';
+import { AddSkillComponent } from './components/skills/add-skill/add-skill.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { LoginRoutingModule } from './components/login/login-routing.module';
     EditSkillComponent,
     SearchTextComponent,
     LoaderComponent,
-    LoginComponent
+    LoginComponent,
+    AddSkillComponent
   ],
   imports: [
     BrowserModule,

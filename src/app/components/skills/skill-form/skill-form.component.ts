@@ -20,7 +20,7 @@ export class SkillFormComponent implements OnInit {
         private _router: Router) { }
  
     ngOnInit() {
-        this.subSkills = this._skillsService.getSubSkills();
+        this.subSkills = this._skillsService.getSubSkills()
     }
  
     // Détermine si le subSkill passé en paramètres appartient ou non au skill en cours d'édition.
