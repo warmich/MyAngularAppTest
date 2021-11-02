@@ -21,7 +21,7 @@ export class AddSkillComponent implements OnInit {
   ngOnInit() {
     this.subSkills = this._skillsService.getSubSkills()
     this.skill = new Skill()
-    this.skill.id = this._skillsService.getNbrSkills() + 1
+    // this.skill.id = this._skillsService.getNbrSkills() + 1
     this.skill.subSkills = new Array<string>()
     this.subSkills.forEach(element => {
       console.log(element)
