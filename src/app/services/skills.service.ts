@@ -29,7 +29,8 @@ export class SkillsService {
 
   getSkills(): Observable<Skill[]> {
     return this.http.get<Skill[]>(this.skillsUrl).pipe(
-      tap(_ => this.log(`fetched skills`)),
+      tap(data => console.log(data)),
+      // tap(_ => this.log(`fetched skills data`)),
       catchError(this.handleError(`getSkills`, []))
     )
   }
