@@ -19,6 +19,7 @@ export class SkillsService {
     console.info(log) // affiche les logs dans la console => modifier si je veux archiver les logs
   }
 
+  
   handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.log(error)
