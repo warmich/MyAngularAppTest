@@ -7,18 +7,12 @@ export class InMemoryDataService implements InMemoryDbService {
   skills: Skill[] = []
   dbJson!: any
 
-  /**
-   *
-   */
   constructor() {
     this.skills = SKILLS
-    
   }
 
   createDb(){
-    
-    this.dbJson = { skills: this.skills }
+    this.dbJson = { skills: this.skills } // { skills: this.skills } crée un objet Json
     return this.dbJson // retourne un objet JSON skill
   }
-  
 }

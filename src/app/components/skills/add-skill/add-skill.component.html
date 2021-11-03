@@ -5,6 +5,16 @@
 		<div class="col s8 offset-s2">
 			<div class="card-panel">
 
+				<!-- skill id -->
+				<div class="form-group">
+					<label for="id">id</label>
+					<input type="number" class="form-control" id="evaluation" required pattern="^[0-9]{1,2}$"
+						[(ngModel)]="skill.id" name="id" #id="ngModel">
+					<div [hidden]="id.valid || id.pristine" class="card-panel red accent-1">
+						id entre 0 et 99.
+					</div>
+				</div>
+
 				<!-- skill name -->
 				<div class="form-group">
 					<label for="name">Nom</label>
